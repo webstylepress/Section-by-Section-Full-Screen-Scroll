@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+		<title>WebStylePress</title>
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+		/>
+		<style>
+			.container {
+				height: 100%;
+				font-size: 100px;
+			}
+			.row {
+				align-items: center;
+				text-align: center;
+				height: 100%;
+			}
+			.s-one {
+				color: #fff;
+				background-color: rgb(121, 49, 49);
+			}
+			.s-two {
+				color: #fff;
+				background-color: rgb(52, 116, 84);
+			}
+			.s-three {
+				color: #fff;
+				background-color: rgb(79, 64, 116);
+			}
+			.scroll-control {
+				position: fixed;
+				right: 20px;
+				top: 50%;
+				transform: translateX(-50%);
+				z-index: 999;
+			}
+			.scroll-control span {
+				cursor: pointer;
+				display: block;
+				width: 14px;
+				height: 14px;
+				border-radius: 50%;
+				margin: 10px 0;
+				background-color: #000;
+				opacity: 0.7;
+			}
+			.scroll-control span:hover {
+				opacity: 1;
+			}
+			@media all and (max-width: 1023px) {
+				.scroll-control span {
+					display: none;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="scroll-control">
+			<span class="one"></span>
+			<span class="two"></span>
+			<span class="three"></span>
+		</div>
+
+		<section class="scroll s-one" data-section-name="s-one">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<p>Section One</p>
+						<p style="font-size: 40px"
+							>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi
+							totam nemo beatae! Delectus soluta qui culpa vel dolores ut quas
+							magni aperiam, nam est sunt, possimus dicta sint consequuntur
+							obcaecati! Lorem ipsum dolor sit amet, consectetur adipisicing
+							elit. Nisi totam nemo beatae! Delectus soluta qui culpa vel
+							dolores ut obcaecati!</p
+						>
+						<p style="font-size: 40px"
+							>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi
+							totam nemo beatae! Delectus soluta qui culpa vel dolores ut quas
+							magni aperiam, nam est sunt, possimus dicta sint consequuntur
+							obcaecati! Lorem ipsum dolor sit amet, consectetur adipisicing
+							elit. Nisi totam nemo beatae! Delectus soluta qui culpa vel
+							dolores ut obcaecati!</p
+						>
+						<p style="font-size: 40px"
+							>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi
+							totam nemo beatae! Delectus soluta qui culpa vel dolores ut quas
+							magni aperiam, nam est sunt, possimus dicta sint consequuntur
+							obcaecati! Lorem ipsum dolor sit amet, consectetur adipisicing
+							elit. Nisi totam nemo beatae! Delectus soluta qui culpa vel
+							dolores ut obcaecati!</p
+						>
+						<p style="font-size: 40px"
+							>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi
+							totam nemo beatae! Delectus soluta qui culpa vel dolores ut quas
+							magni aperiam, nam est sunt, possimus dicta sint consequuntur
+							obcaecati! Lorem ipsum dolor sit amet, consectetur adipisicing
+							elit. Nisi totam nemo beatae! Delectus soluta qui culpa vel
+							dolores ut obcaecati!</p
+						>
+						<p style="font-size: 40px"
+							>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi
+							totam nemo beatae! Delectus soluta qui culpa vel dolores ut quas
+							magni aperiam, nam est sunt, possimus dicta sint consequuntur
+							obcaecati! Lorem ipsum dolor sit amet, consectetur adipisicing
+							elit. Nisi totam nemo beatae! Delectus soluta qui culpa vel
+							dolores ut obcaecati!</p
+						>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="scroll s-two" data-section-name="s-two">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<p>Section Two</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="scroll s-three" data-section-name="s-three">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<p>Section Three</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/scrollify/1.0.21/jquery.scrollify.min.js"
+			integrity="sha512-UyX8JsMsNRW1cYl8BoxpcamonpwU2y7mSTsN0Z52plp7oKo1u92Xqfpv6lOlTyH3yiMXK+gU1jw0DVCsPTfKew=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+		<script>
+			$(document).ready(function () {
+				screenCheck();
+
+				$('.scroll-control .one').click(function () {
+					$.scrollify.move('#s-one');
+				});
+				$('.scroll-control .two').click(function () {
+					$.scrollify.move('#s-two');
+				});
+				$('.scroll-control .three').click(function () {
+					$.scrollify.move('#s-three');
+				});
+			});
+
+			$(window).on('resize', function () {
+				screenCheck();
+			});
+
+			function applyScroll() {
+				$.scrollify({
+					section: '.scroll',
+					sectionName: 'section-name',
+					//standardScrollElements: 'section',
+					easing: 'easeOutExpo',
+					scrollSpeed: 1100,
+					offset: 0,
+					scrollbars: true,
+					setHeights: true,
+					overflowScroll: true,
+					updateHash: false,
+					touchScroll: true,
+				});
+			}
+
+			function screenCheck() {
+				var deviceAgent = navigator.userAgent.toLowerCase();
+				var agentID = deviceAgent.match(/(iphone|ipod|ipad)/);
+				if (agentID || $(window).width() <= 1024) {
+					// its mobile screen
+					$.scrollify.destroy();
+					$('section').removeClass('scroll').removeAttr('style');
+					$.scrollify.disable();
+				} else {
+					// its desktop
+					$('section').addClass('scroll');
+					applyScroll();
+					$.scrollify.enable();
+				}
+			}
+		</script>
+	</body>
+</html>
